@@ -17,7 +17,7 @@
 
 .input_div{
   width: 500px;
-  padding: 3rem 2rem 2.5rem;
+  padding: 3rem 2rem 1rem;
   position: relative;
   margin: 2rem auto;
   box-shadow: 0 1rem 1rem rgb(185, 184, 184);
@@ -41,10 +41,54 @@
   background-color: white;
   cursor: pointer;
   position: absolute;
-  bottom:15px;
-  right: 2rem;
+  bottom:-0.7rem;
+  right: 2.7rem;
   outline: none;
   color: #f1c40f;
   width: 2.5rem;
   height: 2.5rem;
+}
+
+.input_div button:active{
+  opacity: 0.6;
+}
+
+.keep_body{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box{
+  min-width: 250px;
+  height: 7rem;
+  box-shadow: 0 0.5rem 1rem gray;
+  padding: 1rem;
+  margin: 1rem;
+  position: relative;
+}
+
+.box h2{
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: gray;
+  margin-bottom: 0.5rem;
+}
+
+.box button{
+  position: absolute;
+  bottom: 0;
+  right: 1rem;
+  border-radius: 50%;
+  border: 0;
+  color: gray;
+  background-color: white;
+  box-shadow: 0 0.5rem 1rem gray;
+  outline: none;
+  padding: 0.4rem;
+  cursor: pointer;
+}
+
+.box button:active{
+  color: crimson;
 }
