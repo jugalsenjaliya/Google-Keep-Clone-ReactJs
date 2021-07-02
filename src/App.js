@@ -10,7 +10,7 @@ function App() {
   const [keepData, setKeepData] = useState({
     title: "",
     note: "",
-  })
+  });
   const InputEvent = (event) => {
     const { name, value } = event.target;
     setKeepData((oldItem) => {
@@ -19,7 +19,14 @@ function App() {
         [name]: value
       }
     })
-  }
+  };
+
+  const AddNote = () => {
+    setNewKeepData((oldData) => {
+      return [...oldData,keepData]
+    })
+  };
+
 
   return (
     <div className="wrapper">
@@ -37,8 +44,14 @@ function App() {
 
       <div className="keep_body">
 
-        {newKeepData.map(() => {
-          return
+        {newKeepData.map((itemVal, index) => {
+          return (
+            <Note title={itemVal.title}
+              note={itemVal.note}
+              key={index}
+              id={index}
+            />
+          )
         })}
       </div>
     </div>
