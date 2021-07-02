@@ -23,10 +23,21 @@ function App() {
 
   const AddNote = () => {
     setNewKeepData((oldData) => {
-      return [...oldData,keepData]
+      return [...oldData, keepData]
     })
+    setKeepData({
+      title: "",
+      note: "",
+    });
   };
 
+  const DeleteItems = (id) => {
+    setNewKeepData((oldItem) => {
+      return oldItem.filter((arr,index)=>{
+        return index != id;
+      })
+    })
+  }
 
   return (
     <div className="wrapper">
@@ -35,8 +46,17 @@ function App() {
       </div>
 
       <div className="input_div">
-        <input onChange={InputEvent} type="text" placeholder="Title..." autoComplete="off" name="title" />
-        <textarea onChange={InputEvent} placeholder="Enter Your Note..." name="note"></textarea>
+        <input
+          onChange={InputEvent}
+          type="text" placeholder="Title..."
+          autoComplete="off"
+          name="title"
+          value={keepData.title} />
+        <textarea
+          onChange={InputEvent}
+          placeholder="Enter Your Note..."
+          name="note"
+          value={keepData.note}></textarea>
         <button type="button" onClick={AddNote}>
           <AddIcon />
         </button>
@@ -50,6 +70,7 @@ function App() {
               note={itemVal.note}
               key={index}
               id={index}
+              onSelect={DeleteItems}
             />
           )
         })}
